@@ -4,7 +4,7 @@ using namespace std;
 //deklarasi fungsi
 bool apakahKosong();
 void tambahdepan(int depan);
-void tambahtengah(int pos, int data); //eroor
+void tambahtengah(int pos, int data);
 void tambahbelakang();
 void hapusdepan(int pos);
 void hapustengah(int pos);
@@ -33,11 +33,11 @@ int main (){
 	while(true){
 	int pilih;
 	cout << "[1] Tambah Belakang" << endl; //suskses
-	cout <<  "[2] Tambah Tengah" <<endl; //suskses
+	cout << "[2] Tambah Tengah" <<endl; //suskses
 	cout << "[3] Tambah Depan" << endl;//suskses
-	cout << "[4] Hapus belakang"<< endl;
+	cout << "[4] Hapus belakang"<< endl; //suskses
 	cout << "[5] Hapus Tengah"<<endl; //suskses
-	cout << "[6] Hapus Depan"<<endl;
+	cout << "[6] Hapus Depan"<<endl; //suskses
 	cout << "[7] Cetak Bos Qu"<<endl; //suskses
 	cout << "Masukan Pilihan:"; cin >> pilih;
 	//untuk pilihannya
@@ -52,7 +52,7 @@ int main (){
 				 break;
 		case 3 : tambahdepan(depan);
 			break;
-		case 4 : cout<<"posisi yg ngin di hapus : "; cin>>pos;
+		case 4 :
 				hapusbelakang(pos);
 			break;
 		case 5 : cout<<"posisi yg ngin di hapus : "; cin>>pos;
@@ -65,17 +65,18 @@ int main (){
 			break;
 		default: cout << "inputan salah solahkan coba lagi";
 			break;
-	}
- }
+        }
+    }
 }
 
+//cek ada nilai atau tidak
 bool apakahKosong(){
 	if (head == NULL)
 		return true;
 	else
 		return false;
 }
-
+//tambah belakang
 void tambahbelakang(){
 	int a;
 
@@ -87,10 +88,8 @@ void tambahbelakang(){
 	tail->next = entry;
 	tail = entry;
 }
-
-
-void tambahtengah(int pos, int data)
-{
+//tambah tengah
+void tambahtengah(int pos, int data){
 	entry = new node;
 	curr = head;
 	for(int i =1; i<pos; i++){
@@ -102,7 +101,7 @@ void tambahtengah(int pos, int data)
 	prev->next = entry;
 
 }
-
+//tambah depan
 void tambahdepan(int depan){
 	int b;
 	cout <<"Input data : "; cin>>b;
@@ -121,17 +120,29 @@ void tambahdepan(int depan){
 	}
 
 }
-
+//hapus depan
 void hapusbelakang(int pos){
-	curr = head;
-	for (int i=1; i<pos; i++){
-		prev = curr;
-		curr = curr->next;
-	}
-	prev->next = curr->next;
-	//delete curr
-}
+    if(apakahKosong()){
+		cout<<"list kosong"<<endl;
+	}else if(head->next== NULL){
+		curr = head;
+		head = NULL;
+		tail = NULL;
+		delete(curr);
+	}else{
+		bantu = head;
+		while (bantu->next != tail){
+			bantu = bantu->next;
+		}
 
+		curr = tail;
+		tail = bantu;
+		tail->next= NULL;
+		delete(curr);
+		cout<< "berhasil di hapus!!!!!!"<<endl;
+	}
+}
+//hapus tengah
 void hapustengah(int pos){
 	curr = head;
 	for (int i=1; i<pos; i++){
@@ -141,7 +152,7 @@ void hapustengah(int pos){
 	prev->next = curr->next;
 	//delete curr
 }
-
+//hapus depan
 void hapusdepan(int pos){
 	if(apakahKosong()){
 		cout<<"List kosong"<<endl;
@@ -153,7 +164,7 @@ void hapusdepan(int pos){
 		cout <<"berhasil di hapus!!!!!!!"<<endl;
 	}
 }
-
+//cetak
 void cetak(){
 	bantu = head;
 	while(bantu!=NULL){
