@@ -88,7 +88,7 @@ void tambahbelakang(){
 	tail->next = entry;
 	tail = entry;
 }
-//tambah tengah
+//tambah tengah error
 void tambahtengah(int pos, int data){
 	entry = new node;
 	curr = head;
