@@ -25,7 +25,7 @@ int main(){
 /*	tambahdepan(2);
 	tambahdepan(1);
 	tambahbelakang(27);
-	tambahbelakang(14);*/
+	tambahbelakang(14);*/ //pusing/
 
 	while (true){
 		int pilih;
