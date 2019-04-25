@@ -26,6 +26,7 @@ int main(){
 	tambahtengah(50,2);
 	tambahbelakang(40);
 	tambahdepan(32);
+	tambahbelakang(50);
 	tambahtengah(70,4);
 	tambahbelakang(50);
 	tampilkanisi();
