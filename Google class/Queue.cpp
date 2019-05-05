@@ -79,6 +79,13 @@ void read(){
 	}
 }
 
+
+void clear(){
+	belakang = -1;
+	cout<<"queue berhasil dikosongkan!"<<endl;
+}
+
+
 int main(){
 		int pilih;
 	int data;
@@ -128,7 +135,7 @@ int main(){
 			read();
 			break;
 		case 6 :
-			//exit(0);
+			clear();
 			break;
 		default :
 			cout << "Pilihan salah";
