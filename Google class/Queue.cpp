@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream> //belum ada ngoding
 using namespace std;
 
 #define MAX_QUEUE 5
